@@ -13,6 +13,22 @@ pipeline {
                 git branch: 'main', url: "${GIT_REPO}"
             }
         }
+		
+		 stage('Restore') {
+            steps {
+                bat "dotnet restore Automation_Incubation.sln --no-cache --force"
+            }
+        }
+        stage('Build') {
+            steps {
+                bat "dotnet build Automation_Incubation.sln --configuration Release"
+            }
+        }
+        stage('Test') {
+            steps {
+                bat "dotnet test Automation_Incubation.sln --configuration Release"
+            }
+        }
 
         stage('Restore Packages') {
             steps {
