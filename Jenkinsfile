@@ -34,13 +34,7 @@ pipeline {
             steps {
                 bat "nuget restore ${SOLUTION_NAME}"
             }
-        }
-
-        stage('Build Solution') {
-            steps {
-                bat "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\MSBuild.exe\" ${SOLUTION_NAME} /p:Configuration=Debug"
-            }
-        }
+        }       
 
         stage('Run Regression Tests') {
             steps {
