@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        SOLUTION_NAME = "Automation_Incubation.dll"
+        SOLUTION_NAME = "Automation_Incubation\\Automation_Incubation.dll"
         TEST_DLL = "D:\\Automation_Incubation_Repo\\Automation_Incubation\\bin\\Debug\\net8.0\\Automation_Incubation.dll"
         GIT_REPO = "https://github.com/Ajay655202/Automation_Incubation.git"
     }
