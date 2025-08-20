@@ -16,17 +16,17 @@ pipeline {
 		
 		 stage('Restore') {
             steps {
-                bat "dotnet restore Automation_Incubation.sln --no-cache --force"
+                bat "dotnet restore ${SOLUTION_NAME} --no-cache --force"
             }
         }
         stage('Build') {
             steps {
-                bat "dotnet build Automation_Incubation.sln --configuration Release"
+                bat "dotnet build ${SOLUTION_NAME} --configuration Release"
             }
         }
         stage('Test') {
             steps {
-                bat "dotnet test Automation_Incubation.sln --configuration Release"
+                bat "dotnet test ${SOLUTION_NAME} --configuration Release"
             }
         }
 
