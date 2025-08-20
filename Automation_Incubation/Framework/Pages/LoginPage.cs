@@ -27,5 +27,7 @@ namespace LoggingAutomation.Framework.Pages
         public void EnterPassword(string password) => Password?.SendKeys(password);
 
         public void ClickLogin() => LoginButton?.Click();
+
+        public string GetTitle() => _driver.Title;
     }
 }

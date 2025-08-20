@@ -17,11 +17,12 @@ namespace LoggingAutomation.Framework.Actions
             _loginPage = new LoginPage(driver);
         }
 
-        public void LoginAs(string username, string password)
+        public string LoginAs(string username, string password)
         {
             _loginPage.EnterUsername(username);
             _loginPage.EnterPassword(password);
             _loginPage.ClickLogin();
+            return _loginPage.GetTitle();
         }
     }
 }

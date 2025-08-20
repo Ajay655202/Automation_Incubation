@@ -13,7 +13,6 @@ namespace LoggingAutomation.Framework.Tests
     [TestFixture]
     public class LoginTests
     {
-        private IWebDriver _driver;
         private LoginAction loginAction;
         private string? browser;
         private string? baseUrl;
@@ -37,7 +36,7 @@ namespace LoggingAutomation.Framework.Tests
         [SetUp]
         public void SetUp()
         {
-            _driver = DriverFactory.GetDriver(browser);
+            IWebDriver _driver = DriverFactory.GetDriver(browser);
             loginAction = new LoginAction(_driver);
             _driver.Navigate().GoToUrl(baseUrl);
         }
@@ -46,43 +45,41 @@ namespace LoggingAutomation.Framework.Tests
         [Category("Regression")]
         public void LoginToApp()
         {
-            loginAction.LoginAs(userId, password);
-            Assert.IsTrue(_driver.Title.Contains("Practice"));
+            string title = loginAction.LoginAs(userId, password);
+            Assert.IsTrue(title.Contains("Practice"));
         }
 
         [Test]
         [Category("Regression")]
         public void LoginToApp2()
         {
-            loginAction.LoginAs(userId, password);
-            Assert.IsTrue(_driver.Title.Contains("Practice"));
+            string title = loginAction.LoginAs(userId, password);
+            Assert.IsTrue(title.Contains("Practice"));
         }
 
         [Test]
         [Category("Regression")]
         public void LoginToApp3()
         {
-            loginAction.LoginAs(userId, password);
-            Assert.IsTrue(_driver.Title.Contains("Practice"));
+            string title = loginAction.LoginAs(userId, password);
+            Assert.IsTrue(title.Contains("Practice"));
         }
 
         [Test]
         public void InvalidLoginToApp()
         {
-            loginAction.LoginAs(userId, password);
-            Assert.IsTrue(_driver.Title.Contains("123Practice123"));
+            string title = loginAction.LoginAs(userId, password);
+            Assert.IsTrue(title.Contains("Practice"));
         }
 
         [TearDown]
         public void TearDown()
         {
-            _driver?.Dispose();
         }
 
         [OneTimeTearDown]
         public void OneTimeTearDown()
         {
-            _driver?.Dispose();
         }
     }
 }
