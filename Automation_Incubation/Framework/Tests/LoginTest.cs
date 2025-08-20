@@ -15,10 +15,10 @@ namespace LoggingAutomation.Framework.Tests
     {
         private IWebDriver _driver;
         private LoginAction loginAction;
-        private string browser;
-        private string baseUrl;
-        private string userId;
-        private string password;
+        private string? browser;
+        private string? baseUrl;
+        private string? userId;
+        private string? password;
 
         [OneTimeSetUp]
         public void BeforeAll()
@@ -76,6 +76,7 @@ namespace LoggingAutomation.Framework.Tests
         [TearDown]
         public void TearDown()
         {
+            _driver?.Dispose();
         }
 
         [OneTimeTearDown]

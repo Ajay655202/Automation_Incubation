@@ -16,16 +16,16 @@ namespace LoggingAutomation.Framework.Pages
             _driver = driver;
         }
 
-        private IWebElement Username => WaitHelper.WaitForElementVisible(_driver, By.Id("username"));
+        private IWebElement? Username => WaitHelper.WaitForElementVisible(_driver, By.Id("username"));
 
-        private IWebElement Password => WaitHelper.WaitForElementVisible(_driver, By.Id("password"));
+        private IWebElement? Password => WaitHelper.WaitForElementVisible(_driver, By.Id("password"));
 
-        private IWebElement LoginButton => WaitHelper.WaitForElementVisible(_driver, By.Id("submit"));
+        private IWebElement? LoginButton => WaitHelper.WaitForElementVisible(_driver, By.Id("submit"));
 
-        public void EnterUsername(string username) => Username.SendKeys(username);
+        public void EnterUsername(string username) => Username?.SendKeys(username);
 
-        public void EnterPassword(string password) => Password.SendKeys(password);
+        public void EnterPassword(string password) => Password?.SendKeys(password);
 
-        public void ClickLogin() => LoginButton.Click();
+        public void ClickLogin() => LoginButton?.Click();
     }
 }

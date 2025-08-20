@@ -13,7 +13,7 @@ namespace LoggingAutomation.Framework
     public static class DriverFactory
     {
         [ThreadStatic]
-        private static IWebDriver _driver;
+        private static IWebDriver? _driver;
 
         public static IWebDriver GetDriver(string browser = "Chrome")
         {

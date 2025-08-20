@@ -10,9 +10,9 @@ namespace LoggingAutomation.Framework
 {
     public static class WaitHelper
     {
-        static WebDriverWait wait;
+        static WebDriverWait? wait;
 
-        public static IWebElement WaitForElementVisible(IWebDriver driver, By locator, int timeoutSeconds = 10)
+        public static IWebElement? WaitForElementVisible(IWebDriver driver, By locator, int timeoutSeconds = 10)
         {
             try
             {
@@ -24,7 +24,7 @@ namespace LoggingAutomation.Framework
                 wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeoutSeconds));
                 return wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(locator));
             }
-            catch(Exception ex)
+            catch (Exception)
             {
                 return null;
             }
